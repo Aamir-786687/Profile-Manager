@@ -57,21 +57,15 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
-      {/* Grid Background */}
-      <div className="fixed inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
-        backgroundSize: '24px 24px'
-      }}></div>
+      
 
       {/* Content */}
       <div className="relative z-10">
         <Navbar />
         <div className="container mx-auto px-4 py-8">
           <div className="mb-12">
-            <h1 className="text-5xl font-bold mb-4">Profile Manager</h1>
-            <p className="text-xl text-gray-400 max-w-2xl">
-              "Il n'y a pas de richesse sans créativité" - Manage and showcase creative profiles with style.
-            </p>
+            <h1 className="text-5xl text-center font-bold mb-4">Profile Manager</h1>
+            
           </div>
           <FilterBar 
             users={users} 
