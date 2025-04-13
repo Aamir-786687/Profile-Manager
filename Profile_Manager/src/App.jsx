@@ -1,23 +1,46 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useLocalStorage } from './hooks/useLocalStorage';
 import UserList from './components/UserList';
-import ProfileForm from './components/ProfileForm';
+import Navbar from './components/Navbar';
+import { firebaseService } from './services/firebaseService';
+import './styles/main.css';
 
 const App = () => {
   const dispatch = useDispatch();
-  const [editingUser, setEditingUser] = useState(null);
-  const { get } = useLocalStorage('users', []);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const users = get();
-    dispatch({ type: 'SET_USERS', payload: users });
-  }, []);
+    const fetchUsers = async () => {
+      try {
+        const users = await firebaseService.getUsers();
+        dispatch({ type: 'SET_USERS', payload: users });
+      } catch (error) {
+        console.error('Error loading users:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, [dispatch]);
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="text-center">
+          <div className="spinner"></div>
+          <p>Loading profiles...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
-      <ProfileForm editingUser={editingUser} setEditingUser={setEditingUser} />
-      <UserList onEdit={setEditingUser} />
+    <div className="app-container">
+      <Navbar />
+      <main className="main-content">
+        <UserList />
+      </main>
     </div>
   );
 };

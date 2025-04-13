@@ -1,0 +1,214 @@
+{
+  "users": [
+    {
+      "name": "Bhuvan Bam",
+      "email": "BB@example.com",
+      "description": "Bhuvan Bam is a popular Indian YouTuber, comedian, singer, and actor known for his humorous content and character-driven sketches on BB Ki Vines.",
+      "languages": "English, Hindi",
+      "education": "Bachelor's degree in History",
+      "specialization": "Comedy",
+      "X": "https://x.com/Bhuvan_Bam",
+      "instagram": "https://www.instagram.com/bhuvan.bam22/",
+      "imageUrl": "https://tse2.mm.bing.net/th?id=OIP.7hWHFGKfTaVMHsya10DrvwHaJQ&w=474&h=474&c=7"
+    },
+    {
+      "name": "Mr. Beast Aka Jimmy Donaldson",
+      "email": "Jimmy@example.com",
+      "description": "MrBeast is a popular American YouTuber known for his extravagant challenges, philanthropy, and viral stunts.",
+      "languages": "English",
+      "education": "Dropped out to focus on his YouTube career",
+      "specialization": "Tech Reviews, Gadgets",
+      "X": "MrBeasthttps://x.com/MRbeast",
+      "instagram": "https://www.instagram.com/mrbeast/",
+      "imageUrl": "https://tse3.mm.bing.net/th?id=OIP.Vka_OgX65j_5aDLMt9K5_AHaEK&w=266&h=266&c=7"
+    },
+    {
+      "name": "Gaurav Taneja aka Flying Beast",
+      "email": "xyz@gmail.com",
+      "description": "Gaurav Taneja is an Indian YouTuber, commercial pilot, and fitness enthusiast known for his travel vlogs, fitness content, and advocacy for traditional farming practices.",
+      "languages": "English, Hindi",
+      "education": "Civil Engineering",
+      "specialization": "Family Vlogs",
+      "twitter": "https://twitter.com/flyingbeast320",
+      "instagram": "https://www.instagram.com/taneja.gaurav/",
+      "imageUrl": "https://img.mensxp.com/media/content/2020/Apr/1_5e8c8133ccb11.jpeg"
+    },
+    {
+      "name": " Ajey Nagar aka CarryMinati",
+      "email": "xyz@gmail.com",
+      "description": "CarryMinati is a renowned Indian YouTuber and rapper known for his comedic skits, roasting videos, and live gaming streams.",
+      "languages": "Hindi, English",
+      "education": "Pursued his education at Delhi Public School in Faridabad",
+      "specialization": "Comedy, Roasting, Gaming",
+      "X": "https://x.com/CarryMinati",
+      "instagram": "https://www.instagram.com/carryminati/",
+      "imageUrl": "https://www.masala.com/cloud/2021/08/09/IkfpIGNn-carryminati_1.jpg"
+    },
+    {
+      "name": "Harsh Beniwal",
+      "email": "xyz@gmail.com",
+      "description": "Harsh Beniwal is a popular Indian YouTuber and actor known for his comedic skits and digital content.",
+      "languages": "Hindi, English",
+      "education": "Pursued Bachelor of Computer Applications (BCA)",
+      "specialization": "Comedy, Acting",
+      "X": "https://x.com/harshbeniwal",
+      "instagram": "https://www.instagram.com/harshbeniwal/",
+      "imageUrl": "https://www.tribuneindia.com/sortd-service/imaginary/v22-01/jpg/large/high?url=dGhldHJpYnVuZS1zb3J0ZC1wcm8tcHJvZC1zb3J0ZC9tZWRpYTQ4MTU0YWEwLTRlYTUtMTFlZi05NmNkLTAzMWE4OWU3OWU1ZC5qcGc="
+    },
+    {
+      "name": "Ashish Chanchlani",
+      "email": "xyz@gmail.com",
+      "description": "Ashish Chanchlani is an Indian YouTuber and influencer known for his comedic videos and relatable content.",
+      "languages": "Hindi, English",
+      "education": "B.Tech in Civil Engineering",
+      "specialization": "Comedy, Acting",
+      "X": "https://x.com/ashchanchlani",
+      "instagram": "https://www.instagram.com/ashishchanchlani/",
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BZTQ0MGUyOTktYzMyMi00YmQ5LTg1MWYtOWZkYjRjZTVhMTBkXkEyXkFqcGc@._V1_.jpg"
+    },
+    {
+      "name": "Nikhil Sharma aka Mumbiker Nikhil",
+      "email": "xyz@gmail.com",
+      "description": "Nikhil Sharma is a renowned Indian moto-vlogger and lifestyle content creator, known for his engaging travel vlogs and storytelling.",
+      "languages": "English, Hindi",
+      "education": "Degree in Hotel Management",
+      "specialization": "Travel Vlogging, Lifestyle Content",
+      "X": "https://x.com/MumbikerNikhil",
+      "instagram": "https://www.instagram.com/mumbikernikhil/",
+      "imageUrl": "https://qph.cf2.quoracdn.net/main-qimg-e5db12ac8a0721247ecb62850ff222b8-lq"
+    },
+    {
+      "name": "Kenny Sebastian",
+      "email": "xyz@gmail.com",
+      "description": "Kenny Sebastian is a prominent Indian stand-up comedian, musician, and filmmaker, celebrated for his relatable humor and engaging performances.",
+      "languages": "English, Hindi, Malayalam, Kannada",
+      "education": "Bachelor's degree in Visual Arts",
+      "specialization": "Stand-up Comedy, Music, Filmmaking",
+      "X": "https://x.com/knowkenny",
+      "instagram": "https://www.instagram.com/kennethseb/",
+      "imageUrl": "https://static.toiimg.com/photo/88949847/88949847.jpg"
+    },
+    {
+      "name": "Kusha Kapila",
+      "email": "xyz@gmail.com",
+      "description": "Kusha Kapila is an Indian content creator, actress, and fashion editor, known for her comedic sketches and relatable characters.",
+      "languages": "English, Hindi",
+      "education": "Bachelor's degree in Fashion Design",
+      "specialization": "Comedy, Fashion Content",
+      "X": "https://x.com/kushakapila",
+      "instagram": "https://www.instagram.com/kushakapila/",
+      "imageUrl": "https://wp.missmalini.com/wp-content/uploads/2021/02/Kusha-Kapila-Source_-Instagram-_-@kushakapila-.jpg"
+    },
+    {
+      "name": "Sejal Kumar",
+      "email": "xyz@gmail.com",
+      "description": "Sejal Kumar is an Indian YouTuber and fashion blogger, known for her lifestyle and fashion content.",
+      "languages": "English, Hindi",
+      "education": "Bachelor's degree in Economics ",
+      "specialization": "Fashion, Lifestyle Content",
+      "X": "https://x.com/sejalkumar1195",
+      "instagram": "https://www.instagram.com/sejalkumar1195/",
+      "imageUrl": "https://www.entrepreneurindia.com/shepreneur/images/2020/sejal.jpg"
+    },
+    {
+      "name": "Prajakta Koli aka MostlySane",
+      "email": "xyz@gmail.com",
+      "description": "Prajakta Koli is an Indian YouTuber and actress, known for her comedic sketches and relatable content.",
+      "languages": "English, Hindi",
+      "education": "Bachelor of Mass Media ",
+      "specialization": "Comedy, Acting",
+      "X": "https://x.com/mostlysane",
+      "instagram": "https://www.instagram.com/mostlysane/",
+      "imageUrl": "https://cdn.siasat.com/wp-content/uploads/2022/01/prajakta.jpg"
+    },
+    {
+      "name": "Ranveer Allahbadia aka BeerBiceps",
+      "email": "xyz@gmail.com",
+      "description": "Ranveer Allahbadia is an Indian YouTuber and podcaster, known for his content on fitness, entrepreneurship, and lifestyle.",
+      "languages": "English, Hindi",
+      "education": "Bachelor's degree in Telecommunications and Electronics Engineering ",
+      "specialization": "Fitness, Entrepreneurship, Podcasting",
+      "X": "https://x.com/beerbicepsguy",
+      "instagram": "https://www.instagram.com/beerbiceps/",
+      "imageUrl": "https://yt3.googleusercontent.com/Vgg0TqxVuR98dBQDoaebgM-4AEu1B_Snn0VmSPFpiD6GbCHOiUPdcophJGke3GlTdbBocotVBw=s900-c-k-c0x00ffffff-no-rj"
+    },
+    {
+      "name": "Zayn Saifi",
+      "email": "xyz@gmail.com",
+      "description": "Zayn Saifi is an Indian YouTuber and comedian, known for his role in the comedy trio Round2hell.",
+      "languages": "Hindi, Urdu",
+      "education": "Dropped out from Zakir Hussain College.",
+      "specialization": "Comedy, Sketch Videos",
+      "X": "https://x.com/zaynsaifi21",
+      "instagram": "https://www.instagram.com/zaynsaifi/",
+      "imageUrl": "https://i.pinimg.com/736x/af/7d/9f/af7d9f4ecea024627b81b63690369e22.jpg"
+    },    
+    {
+      "name": "Wasim Ahmad",
+      "email": "xyz@gmail.com",
+      "description": "Wasim Ahmad is an Indian YouTuber and comedian, known for his role in the comedy trio Round2hell.",
+      "languages": "Hindi, Urdu",
+      "education": "Completed schooling up to 12th standard",
+      "specialization": "Comedy, Sketch Videos",
+      "X": "https://x.com/wasimadofficial",
+      "instagram": "https://www.instagram.com/wasim.r2h/",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5cdgzwdC1oHEFaEtcpJL1HE5E8JZuAQQZYw&s"
+    },    
+    {
+      "name": "Nazim Ahmed",
+      "email": "xyz@gmail.com",
+      "description": "Nazim Ahmed is an Indian YouTuber and comedian, known for his role in the comedy trio Round2hell.",
+      "languages": "Hindi, Urdu",
+      "education": "Completed schooling up to 12th standard",
+      "specialization": "Comedy, Sketch Videos",
+      "X": "https://x.com/nazim4hmed",
+      "instagram": "https://www.instagram.com/nazim4hmed/",
+      "imageUrl": "https://publicbiography.com/public/uploads/news-2954.webp"
+    },    
+    {
+      "name": "Jasminder Singh aka JS Films",
+      "email": "xyz@gmail.com",
+      "description": "JS Films is an Indian YouTube channel known for its motovlogs, motorcycle reviews, and travel adventures.",
+      "languages": "Hindi, English",
+      "education": "Information not publicly available",
+      "specialization": "Motovlogging, Motorcycle Reviews, Travel Vlogs",
+      "X": "https://x.com/jsfilmsindia",
+      "instagram": "https://www.instagram.com/jsfilmsindia/",
+      "imageUrl": "https://images.yourstory.com/cs/7/3fb20ae02dc911e9af58c17e6cc3d915/Image8znm-1614355194944.jpg?mode=crop&crop=faces&ar=2%3A1&format=auto&w=1920&q=75"
+    },    
+    {
+      "name": "Anmol Jaiswal",
+      "email": "xyz@gmail.com",
+      "description": "Anmol Jaiswal is an Indian content creator and backpacker, recognized for his travel vlogs and lifestyle content.",
+      "languages": "Hindi, English",
+      "education": "Bachelor of Computer Applications (BCA)",
+      "specialization": "Travel Vlogs, Lifestyle Content and Gaming",
+      "X": "https://x.com/anmoooolll",
+      "instagram": "https://www.instagram.com/anmoooolll/",
+      "imageUrl": "https://www.webguestposting.com/wp-content/uploads/2024/08/anmol-jaiswal.webp"
+    },    
+    {
+      "name": "Prabjot aka Jatt Prabhjot",
+      "email": "xyz@gmail.com",
+      "description": "Prabjot, known as Jatt Prabhjot, is an Indian motovlogger and content creator, famous for his motorcycle reviews and travel vlogs.",
+      "languages": "Hindi, Punjabi",
+      "education": "B.Tech. in Computer Science and Engineering",
+      "specialization": "Motovlogging, Motorcycle Reviews, Travel Vlogs",
+      "X": "https://x.com/jatt_prabhjot",
+      "instagram": "https://www.instagram.com/jatt_prabhjot/",
+      "imageUrl": "https://artistsimages.b-cdn.net/jatt-prabhjot/jatt-prabhjot-1.jpg"
+    },
+    {
+      "name": "Saurav Joshi",
+      "email": "xyz@gmail.com",
+      "description": "Saurav Joshi is an Indian YouTuber, known for his daily vlogs capturing his lifestyle and personal experiences.",
+      "languages": "Hindi, English",
+      "education": "Bachelor's degree in Fine Arts",
+      "specialization": "Daily Vlogs, Lifestyle Content",
+      "X": "https://x.com/souravjoshi_art",
+      "instagram": "https://www.instagram.com/souravjoshivlogs/",
+      "imageUrl": "https://staticg.sportskeeda.com/editor/2023/03/66a3e-16788099851605.png?w=640"
+    }
+    
+  ]
+}
