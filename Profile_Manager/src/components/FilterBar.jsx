@@ -1,83 +1,79 @@
 import { useState, useEffect } from 'react';
 
-const FilterBar = ({ users, setFilters }) => {
+const FilterBar = ({ users, filters, onFilterChange, onClearFilters }) => {
+  // Extract unique options from users
   const [langOptions, setLangOptions] = useState([]);
   const [educationOptions, setEducationOptions] = useState([]);
   const [specOptions, setSpecOptions] = useState([]);
 
-  const [selectedLanguages, setSelectedLanguages] = useState([]);
-  const [education, setEducation] = useState('');
-  const [specialization, setSpecialization] = useState('');
-
   useEffect(() => {
-    const languages = [...new Set(users.flatMap(u => u.languages))];
-    const educations = [...new Set(users.map(u => u.education))];
-    const specializations = [...new Set(users.map(u => u.specialization))];
+    if (!Array.isArray(users)) return;
+
+    // Get unique languages from all users
+    const languages = [...new Set(users.flatMap(u => 
+      Array.isArray(u.languages) ? u.languages : []
+    ))].filter(Boolean);
+
+    // Get unique education levels
+    const educations = [...new Set(users.map(u => u.education).filter(Boolean))];
+
+    // Get unique specializations
+    const specializations = [...new Set(users.map(u => u.specialization).filter(Boolean))];
 
     setLangOptions(languages);
     setEducationOptions(educations);
     setSpecOptions(specializations);
   }, [users]);
 
-  useEffect(() => {
-    setFilters({
-      languages: selectedLanguages,
-      education,
-      specialization
-    });
-  }, [selectedLanguages, education, specialization]);
-
-  const handleLangChange = (lang) => {
-    setSelectedLanguages(prev =>
-      prev.includes(lang) ? prev.filter(l => l !== lang) : [...prev, lang]
-    );
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    onFilterChange({ ...filters, [name]: value });
   };
 
   return (
-    <div className="flex flex-wrap gap-4 mb-4">
-      <div>
-        <label className="block mb-1">Languages</label>
-        <div className="flex flex-wrap gap-2">
-          {langOptions.map(lang => (
-            <label key={lang} className="flex items-center gap-1">
-              <input
-                type="checkbox"
-                value={lang}
-                checked={selectedLanguages.includes(lang)}
-                onChange={() => handleLangChange(lang)}
-              />
-              {lang}
-            </label>
-          ))}
+    <div className="mb-12">
+      <div className="flex flex-wrap gap-4 items-center">
+        {/* Search Input */}
+        <div className="flex-1 min-w-[240px]">
+          <input
+            type="text"
+            name="search"
+            value={filters.search}
+            onChange={handleFilterChange}
+            placeholder="Search profiles..."
+            className="w-full px-4 py-2 bg-[#0f0f0f] border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-600 transition-colors"
+          />
         </div>
-      </div>
 
-      <div>
-        <label className="block mb-1">Education</label>
-        <select
-          value={education}
-          onChange={e => setEducation(e.target.value)}
-          className="p-2 border rounded"
-        >
-          <option value="">All</option>
-          {educationOptions.map(edu => (
-            <option key={edu} value={edu}>{edu}</option>
+        {/* Filter Dropdowns */}
+        <div className="flex flex-wrap gap-4">
+          {[
+            { name: 'specialization', label: 'Specialization', options: specOptions },
+            { name: 'language', label: 'Language', options: langOptions },
+            { name: 'education', label: 'Education', options: educationOptions }
+          ].map(filter => (
+            <select
+              key={filter.name}
+              name={filter.name}
+              value={filters[filter.name]}
+              onChange={handleFilterChange}
+              className="px-4 py-2 bg-[#0f0f0f] border border-gray-800 rounded-lg text-white focus:outline-none focus:border-gray-600 transition-colors"
+            >
+              <option value="">{filter.label}</option>
+              {filter.options.map(option => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
           ))}
-        </select>
-      </div>
 
-      <div>
-        <label className="block mb-1">Specialization</label>
-        <select
-          value={specialization}
-          onChange={e => setSpecialization(e.target.value)}
-          className="p-2 border rounded"
-        >
-          <option value="">All</option>
-          {specOptions.map(spec => (
-            <option key={spec} value={spec}>{spec}</option>
-          ))}
-        </select>
+          {/* Clear Filters Button */}
+          <button
+            onClick={onClearFilters}
+            className="px-4 py-2 bg-[#0f0f0f] border border-gray-800 rounded-lg text-gray-400 hover:text-white hover:border-gray-600 transition-colors"
+          >
+            Clear
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const ProfileCard = ({ user, setEditingUser }) => (
     <p>Edu: {user.education}</p>
     <p>Spec: {user.specialization}</p>
     <div className="flex gap-2">
-      <a href={user.X} target="_blank">
+      <a href={user.x} target="_blank">
         X
       </a>
       <a href={user.instagram} target="_blank">

@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const BASE_URL = 'https://profile-manager-9364e-default-rtdb.firebaseio.com';
-const STORAGE_URL = 'https://firebasestorage.googleapis.com/v0/b/profile-manager-9364e.appspot.com/o';
 
 export const firebaseService = {
   // Get all users
@@ -18,31 +17,6 @@ export const firebaseService = {
     } catch (error) {
       console.error('Error fetching users:', error);
       return [];
-    }
-  },
-
-  // Upload image to Firebase Storage
-  uploadImage: async (file) => {
-    try {
-      const formData = new FormData();
-      formData.append('file', file);
-      
-      const response = await axios.post(
-        `${STORAGE_URL}/${file.name}`,
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        }
-      );
-      
-      // Get the download URL
-      const downloadToken = response.data.downloadTokens;
-      return `${STORAGE_URL}/${file.name}?alt=media&token=${downloadToken}`;
-    } catch (error) {
-      console.error('Error uploading image:', error);
-      throw error;
     }
   },
 
