@@ -20,7 +20,7 @@ const Navbar = () => {
     imageUrl: "",
     imageFile: null,
   })
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showDeletebtn, setShowDeletebtn] = useState(false);
   const [selectedUsers, setSelectedUsers] = useState([]);
   const users = useSelector((state) => state);
 
@@ -156,7 +156,7 @@ const Navbar = () => {
           await firebaseService.deleteUser(userId);
           dispatch({ type: "DELETE_USER", payload: userId });
         }
-        setShowDeleteModal(false);
+        setShowDeletebtn(false);
         setSelectedUsers([]);
       } catch (error) {
         setError(error.message || "Failed to delete profiles. Please try again.");
@@ -177,7 +177,7 @@ const Navbar = () => {
           {/* Action Buttons */}
           <div className="flex items-center space-x-4">
             <button
-              onClick={() => setShowDeleteModal(true)}
+              onClick={() => setShowDeletebtn(true)}
               className="px-4 py-2 bg-white border border-red-200 rounded-lg text-red-600 hover:border-red-300 hover:bg-red-50 transition-colors flex items-center space-x-2 font-medium tracking-wide shadow-sm"
             >
               <span className="text-lg"><Trash2 /></span>
@@ -372,14 +372,14 @@ const Navbar = () => {
       )}
 
       {/* Delete Profiles Modal */}
-      {showDeleteModal && (
+      {showDeletebtn && (
         <div className="fixed inset-0 bg-gray-500/20 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-white p-8 rounded-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto border border-gray-200 shadow-xl">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl heading text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-purple-500">Delete Profiles</h2>
               <button
                 onClick={() => {
-                  setShowDeleteModal(false)
+                  setShowDeletebtn(false)
                   setSelectedUsers([])
                 }}
                 className="text-gray-400 hover:text-gray-600 transition-colors"
@@ -435,7 +435,7 @@ const Navbar = () => {
               </button>
               <button
                 onClick={() => {
-                  setShowDeleteModal(false)
+                  setShowDeletebtn(false)
                   setSelectedUsers([])
                 }}
                 className="flex-1 px-6 py-3 bg-white border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-colors font-medium tracking-wide shadow-sm"
