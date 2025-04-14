@@ -92,15 +92,11 @@ export const firebaseService = {
 
   deleteUser: async (userId) => {
     try {
-      if (!userId) {
-        throw new Error("User ID is required for deletion");
-      }
-
       await axios.delete(`${BASE_URL}/users/${userId}.json`);
       return userId;
     } catch (error) {
       console.error("Error deleting user:", error);
-      throw new Error("Failed to delete user. Please try again.");
+      throw new Error("Failed to delete user. Please try again later.");
     }
   },
 

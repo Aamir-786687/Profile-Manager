@@ -1,8 +1,7 @@
-"use client"
-
 import { useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { firebaseService } from "../services/firebaseService"
+import { Plus, Trash2 } from 'lucide-react';
 
 const Navbar = () => {
   const dispatch = useDispatch()
@@ -21,6 +20,9 @@ const Navbar = () => {
     imageUrl: "",
     imageFile: null,
   })
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [selectedUsers, setSelectedUsers] = useState([]);
+  const users = useSelector((state) => state);
 
   const resetForm = () => {
     setFormData({
@@ -132,7 +134,6 @@ const Navbar = () => {
       // Update Redux store
       dispatch({ type: "ADD_USER", payload: addedUser })
 
-      // Reset form and close modal
       resetForm()
       setShowForm(false)
     } catch (error) {
@@ -142,27 +143,58 @@ const Navbar = () => {
     }
   }
 
+  const handleBulkDelete = async () => {
+    if (selectedUsers.length === 0) {
+      setError("Please select at least one profile to delete");
+      return;
+    }
+
+    if (window.confirm(`Are you sure you want to delete ${selectedUsers.length} selected profile(s)?`)) {
+      try {
+        // Delete users one by one
+        for (const userId of selectedUsers) {
+          await firebaseService.deleteUser(userId);
+          dispatch({ type: "DELETE_USER", payload: userId });
+        }
+        setShowDeleteModal(false);
+        setSelectedUsers([]);
+      } catch (error) {
+        setError(error.message || "Failed to delete profiles. Please try again.");
+      }
+    }
+  };
+
   return (
-    <nav className="border-b border-gray-200 bg-white shadow-sm">
+    <nav className="border border-yellow bg-white shadow-sm">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 m-15">
           {/* Logo/Brand */}
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg shadow-lg"></div>
             <span className="brand-text text-lg tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500"> <p> PROFILES </p></span>
           </div>
 
-          {/* Add Profile Button */}
-          <button
-            onClick={() => {
-              setShowForm(true)
-              resetForm()
-            }}
-            className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-700 hover:border-gray-300 hover:bg-gray-50 transition-colors flex items-center space-x-2 font-medium tracking-wide shadow-sm"
-          >
-            <span className="text-lg">+</span>
-            <span>Add Profile</span>
-          </button>
+          {/* Action Buttons */}
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={() => setShowDeleteModal(true)}
+              className="px-4 py-2 bg-white border border-red-200 rounded-lg text-red-600 hover:border-red-300 hover:bg-red-50 transition-colors flex items-center space-x-2 font-medium tracking-wide shadow-sm"
+            >
+              <span className="text-lg"><Trash2 /></span>
+              <span>Delete Profiles</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setShowForm(true)
+                resetForm()
+              }}
+              className="px-4 py-2 bg-white border border-blue-200 rounded-lg text-blue-600 hover:border-blue-300 hover:bg-blue-50 transition-colors flex items-center space-x-2 font-medium tracking-wide shadow-sm"
+            >
+              <span className="text-lg"><Plus /></span>
+              <span>Add Profile</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -335,6 +367,82 @@ const Navbar = () => {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Profiles Modal */}
+      {showDeleteModal && (
+        <div className="fixed inset-0 bg-gray-500/20 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto border border-gray-200 shadow-xl">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl heading text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-purple-500">Delete Profiles</h2>
+              <button
+                onClick={() => {
+                  setShowDeleteModal(false)
+                  setSelectedUsers([])
+                }}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                ✕
+              </button>
+            </div>
+
+            {error && (
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-red-600 text-sm">{error}</p>
+              </div>
+            )}
+
+            <div className="space-y-4">
+              {users.map((user) => (
+                <div
+                  key={user.id}
+                  className="flex items-center space-x-4 p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <input
+                    type="checkbox"
+                    checked={selectedUsers.includes(user.id)}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        setSelectedUsers([...selectedUsers, user.id]);
+                      } else {
+                        setSelectedUsers(selectedUsers.filter(id => id !== user.id));
+                      }
+                    }}
+                    className="w-5 h-5 text-red-500 border-gray-300 rounded focus:ring-red-500"
+                  />
+                  <img
+                    src={user.imageUrl}
+                    alt={user.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <h3 className="font-medium text-gray-900">{user.name}</h3>
+                    <p className="text-sm text-gray-500">{user.email}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex gap-4 pt-6 mt-6 border-t border-gray-200">
+              <button
+                onClick={handleBulkDelete}
+                disabled={selectedUsers.length === 0}
+                className="flex-1 px-6 py-3 bg-gradient-to-r from-red-500 to-purple-500 rounded-lg text-white font-medium tracking-wide hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+              >
+                Delete Selected ({selectedUsers.length})
+              </button>
+              <button
+                onClick={() => {
+                  setShowDeleteModal(false)
+                  setSelectedUsers([])
+                }}
+                className="flex-1 px-6 py-3 bg-white border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-colors font-medium tracking-wide shadow-sm"
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       )}

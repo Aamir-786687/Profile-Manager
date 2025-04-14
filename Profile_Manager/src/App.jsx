@@ -76,21 +76,9 @@ const App = () => {
           <UserList filters={filters} />
         </div>
       </div>
-
-      {/* Corner Decoration */}
-      <div className="fixed top-4 right-4 text-xs text-gray-600 writing-vertical">
-        Directrice Artistique • Webdesign • Print • Illustration • UI design • UX design • Motion design • Interactive
-      </div>
     </div>
   );
 };
 
 export default App;
 
-// Add this CSS at the end of your global CSS or in a style tag
-const styles = `
-  .writing-vertical {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-  }
-`;
