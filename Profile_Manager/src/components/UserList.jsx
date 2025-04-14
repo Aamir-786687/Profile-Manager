@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useMemo } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { firebaseService } from "../services/firebaseService"
